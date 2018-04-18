@@ -85,4 +85,16 @@ public class WBT extends TestCase {
         Assert.assertTrue("The producted was added", productList.size() == 1);
     }
 
+    public void testStockSituation() throws Exception {
+
+        //quantity negative
+        Product p1=new Product(1,"a","a",1);
+        Product p2=new Product(10,"b","a",-2);
+        ctrl.addProduct(p1);
+        ctrl.addProduct(p2);
+        List<Product> productList = ctrl.stockSituationProduct("a");
+        System.out.println(productList.size());
+        Assert.assertTrue("The producted was added", productList.size() == 1);
+    }
+
 }
